@@ -1,0 +1,499 @@
+/*
+ * Colour scheme: Oceanic Next
+ * https://github.com/mhartington/oceanic-next
+ */
+
+:root {
+   --base00: #1b2b34;
+   --base01: #343d46;
+   --base02: #4f5b66;
+   --base03: #65737e;
+   --base04: #a7adba;
+   --base05: #c0c5ce;
+   --base06: #cdd3de;
+   --base07: #d8dee9;
+   --red: #ec5f67;
+   --orange: #f99157;
+   --yellow: #fac863;
+   --green: #99c794;
+   --cyan: #5fb3b3;
+   --blue: #6699cc;
+   --purple: #c594c5;
+   --brown: #ab7967;
+}
+
+/*
+ * Typography
+ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(1.3em + (1.5 - 1.3) * ((100vw - 320px)/(1920 - 320)));
+}
+
+:root {
+    --font-xs: 0.5rem;
+    --font-s: 0.75rem;
+    --font-m: 1rem;
+    --font-l: 1.5rem;
+    --font-xl: 3rem;
+    --font-bold: 700;
+}
+
+h1 {
+    font-size: var(--font-xl);
+}
+
+p,
+td {
+    color: var(--base05);
+}
+
+/*
+* Global
+*/
+
+:root {
+    --svg-size: 32px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* A declared value is needed for the following rules to apply. */
+*::-webkit-scrollbar {
+    width: revert;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--base00);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--base01);
+    border: 1px solid var(--base00);
+    border-radius: 20px;
+}
+
+html {
+    background-color: var(--base00);
+    color: var(--base07);
+}
+
+body {
+    margin: 0;
+}
+
+section {
+    margin: 3em 0;
+    padding: 0 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.6em;
+    background-color: var(--base00);
+    border-bottom: 5px solid var(--base01);
+    z-index: 1;
+}
+
+a {
+    color: var(--base07);
+}
+
+input,
+button,
+#description-section a {
+    background: none;
+    border: 1px solid;
+    border-radius: 0.3rem;
+}
+
+input {
+    display: block;
+    background-color: var(--base01);
+    border-color: var(--base03);
+    color: var(--base07);
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 1.5em;
+}
+
+button,
+#description-section a {
+    padding: 1rem 1.4rem;
+    text-transform: uppercase;
+}
+
+button.compact {
+    padding: 0.4rem 0.8rem;
+}
+
+button:disabled {
+   border-color: var(--base03);
+   color: var(--base03);
+}
+
+button:enabled,
+#description-section a {
+   border-color: var(--orange);
+   color: var(--orange);
+}
+
+button:enabled:hover,
+button:enabled:active,
+#description-section a:hover,
+#description-section a:active {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    color: var(--base07);
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+input::placeholder {
+    color: var(--base03);
+}
+
+input:active {
+    border-color: var(--base07);
+}
+
+label {
+    display: block;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.address {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 1rem;
+    font-size: var(--font-s);
+    color: var(--base07);
+}
+
+.role-owner {
+    background-color: var(--blue);
+}
+
+.role-charity {
+    background-color: var(--cyan);
+}
+
+.role-doner {
+    background-color: var(--purple);
+}
+
+.role-bystander {
+    background-color: var(--base01);
+}
+
+/*
+ * Header
+ */
+
+#menu,
+#close,
+#menu-content,
+#main-content {
+    display: none;
+}
+
+#menu.active,
+#close.active,
+#main-content.active {
+    display: block;
+}
+
+#menu-content.active {
+    display: grid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    line-height: 5;
+    place-items: center;
+}
+
+#menu-content ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#menu-content a {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-m);
+    font-weight: var(--font-bold);
+    color: var(--base07);
+    text-decoration: underline solid 5px;
+    text-underline-offset: 0.4em;
+    text-transform: uppercase;
+}
+
+#menu-item-home a {
+    text-decoration-color: var(--base01);
+}
+
+#menu-item-owner a {
+    text-decoration-color: var(--blue);
+}
+
+#menu-item-charity a {
+    text-decoration-color: var(--cyan);
+}
+
+#menu-item-doner a {
+    text-decoration-color: var(--purple);
+}
+
+svg {
+    height: var(--svg-size);
+    fill: var(--base07);
+}
+
+svg:hover,
+#menu:hover,
+#close:hover {
+    cursor: pointer;
+}
+
+.owner-view header {
+    border-bottom-color: var(--blue);
+}
+
+.charity-view header {
+    border-bottom-color: var(--cyan);
+}
+
+.doner-view header {
+    border-bottom-color: var(--purple);
+}
+
+/*
+ * Main content
+ */
+
+#main-content {
+    margin-top: 6em;
+}
+
+ #description-section {
+    border-bottom: 1px solid var(--base01);
+    padding: 0 0 1.5em;
+}
+
+#description-section a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+#description-section > div {
+    padding: 0 1em;
+}
+
+#description-section > div,
+#charities-section,
+#charity-form,
+#programs-section,
+#donations-section,
+#program-form {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * Tables
+ */
+
+table {
+    border-spacing: 0.5em;
+    position: relative;
+    left: -0.5em;
+    width: calc(100% + 0.5em);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.address-column,
+.address-cell {
+    text-align: center;
+}
+
+.status-cancelled {
+    color: var(--red);
+}
+
+.status-complete {
+    color: var(--green);
+}
+
+.status-active {
+    color: var(--base07);
+}
+
+.cancel-program {
+    margin-right: 6px;
+}
+
+/*
+ * Forms
+ */
+
+form {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 0 1em;
+}
+
+label {
+    margin: 0.5em 0;
+}
+
+input {
+    padding: 1em 1.4em;
+    width: 100%;
+}
+
+input[type="radio"] {
+    appearance: none;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin: 0 1em 0 0;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+form button {
+    margin-top: 0.5em;
+}
+
+#registered-programs {
+    margin-bottom: 1.5em;
+}
+
+#registered-programs label {
+    display: flex;
+    align-items: center;
+    font-weight: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}
+
+/*
+ * Notices
+ */
+
+#notice,
+#notice div {
+    display: flex;
+    align-items: center;
+}
+
+ #notice {
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    padding: 1em 0;
+    border-top: 5px solid var(--base03);
+    background-color: var(--base00);
+    width: 100%;
+}
+
+#notice div {
+    flex: 1;
+}
+
+#notice p {
+    color: var(--base07);
+    margin: 0;
+}
+
+#notice.info {
+    border-color: var(--base03);
+}
+
+#icon-info {
+    fill: var(--base03);
+}
+
+#notice.error {
+    border-color: var(--red);
+}
+
+#icon-error {
+    fill: var(--red);
+}
+
+#notice.success {
+    border-color: var(--green);
+}
+
+#icon-success {
+    fill: var(--green);
+}
+
+.notice-icon {
+    flex: 0 0 calc(var(--svg-size) + 2em);
+}
+
+/*
+ * Spinner
+ */
+
+@keyframes rotate-spinner {
+    100% {
+        transform: rotate( 360deg );
+    }
+}
+
+.spinner {
+    display: inline-block;
+}
+
+.spinner__outer, .spinner__inner {
+    margin: auto;
+    box-sizing: border-box;
+    border: 0.1em solid transparent;
+    border-radius: 50%;
+    animation: 0.8s linear infinite;
+    animation-name: rotate-spinner;
+}
+
+.spinner__outer {
+    border-top-color: gray;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.spinner__inner {
+    width: 100%;
+    height: 100%;
+    border-top-color: gray;
+    border-right-color: gray;
+    opacity: 0.5;
+}
